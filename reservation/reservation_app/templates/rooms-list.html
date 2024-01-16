@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for room in rooms %}
+<div>
+    <a href="/room/{{ room.id }}/">{{ room.name }}</a>
+    <p>Capacity: {{ room.capacity }}</p>
+    {% if room.projector %}
+    <p>Projector: <i style="color:green;">x</i></p>
+    {% else %}
+    <p>Projector: <i style="color:red;">x</i></p>
+    {% endif %}
+    <a href="/room/modify/{{ room.id }}/">Edit room</a>
+    <a href="/room/delete/{{ room.id }}/">Delete room</a>
+    <a href="/room/reserve/{{ room.id }}/">Reserve room</a>
+</div>
+{% endfor %}
+
+{% endblock %}
